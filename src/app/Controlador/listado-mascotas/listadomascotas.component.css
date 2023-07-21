@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+  }
+
+.SubTitulo{
+    text-align: center;
+    margin: 50px 20px;
+}
+.Agregar{
+    text-align: right;
+    margin: 0 320px;
+}
+
+td, th{
+    width: 5%;
+}
+
+.delete{
+    cursor: pointer;
+    color:crimson;
+    font-size:x-large;
+}
+
+.edit{
+    cursor: pointer;
+    color:green;
+    font-size:x-large;
+}
+
+.search{
+    cursor: pointer;
+    font-size:x-large;
+}
+
+.add{
+    cursor: pointer;
+    color:limegreen;
+    font-size:x-large;
+}

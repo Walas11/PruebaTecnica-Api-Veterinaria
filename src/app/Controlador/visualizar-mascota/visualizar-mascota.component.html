@@ -1,0 +1,20 @@
+<div class="Titulo">
+    <h1>
+        Visualización de Mascota
+    </h1>
+</div>
+<div *ngIf="mascota != null" class="card">
+    <mat-card class="container">
+        <mat-card-title>{{mascota.nombre}}</mat-card-title>
+        <mat-card-content>
+            <br>
+            <p><strong>Especie: </strong> {{mascota.especie}} </p>
+            <p><strong>Raza: </strong> {{mascota.raza}} </p>
+            <p><strong>Fecha Nacimiento: </strong> {{mascota.fechaNacimiento}} </p>
+            <p><strong>IdDueño: </strong> {{mascota.idDueno}} </p>
+        </mat-card-content>
+        <mat-card-actions class="return">
+            <mat-icon routerLink="/listadoMascostas" fontIcon="keyboard_return" matTooltip="Retornar a la pagina anterior"></mat-icon>
+        </mat-card-actions>
+    </mat-card>
+</div>
