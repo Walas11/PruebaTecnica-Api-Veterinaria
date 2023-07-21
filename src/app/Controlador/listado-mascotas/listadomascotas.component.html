@@ -1,0 +1,85 @@
+<div class="Titulo">
+    <h1>Gran Titán Veterinaria</h1>
+</div>
+
+<div class="SubTitulo">
+    <h2>
+        Listado de Mascotas
+    </h2>
+</div>
+
+<div class="Agregar">
+    <h3>
+        Agregar paciente ->
+        <mat-icon routerLink="/agregarMascostas" class="add" fontIcon="group_add" matTooltip="Agregar nuevo paciente"></mat-icon>
+    </h3>
+</div>
+
+<!-- <app-spinner *ngIf="loading"></app-spinner> -->
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+
+<div class="container">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <!-- Id -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <!-- Nombre  -->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Mascota </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+    
+        <!-- Especie  -->
+        <ng-container matColumnDef="especie">
+            <th mat-header-cell *matHeaderCellDef> Especie </th>
+            <td mat-cell *matCellDef="let element"> {{element.especie}} </td>
+        </ng-container>
+    
+        <!-- Raza  -->
+        <ng-container matColumnDef="raza">
+            <th mat-header-cell *matHeaderCellDef> Raza </th>
+            <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
+        </ng-container>
+
+        <!-- FechaNacimiento  -->
+        <ng-container matColumnDef="fechaNacimiento">
+            <th mat-header-cell *matHeaderCellDef> FechaNacimiento </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+        </ng-container>
+
+        <!-- IdDueño  -->
+        <ng-container matColumnDef="idDueno">
+            <th mat-header-cell *matHeaderCellDef> idDueño </th>
+            <td mat-cell *matCellDef="let element"> {{element.idDueno}} </td>
+        </ng-container>
+
+        <!-- Acciones  -->
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones
+             </th>
+            <td mat-cell *matCellDef="let element"> 
+                <mat-icon routerLink="/visualizarMascostas/{{element.id}}" class="search" fontIcon="search" matTooltip="Observar caracteristicas del paciente"></mat-icon>
+                &nbsp;&nbsp;&nbsp;
+                <mat-icon routerLink="/editarMascota/{{element.id}}" class="edit" fontIcon="edit_note" matTooltip="Editar caracteristicas del paciente"></mat-icon>
+                &nbsp;&nbsp;&nbsp;
+                <mat-icon (click)="eliminarMascota(element.id)" class="delete" fontIcon="delete_sweep" matTooltip="Eliminar paciente"></mat-icon>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+<!-- Paginacion -->
+<mat-paginator class="Paginacion" [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements">
+</mat-paginator>
+
+</div>

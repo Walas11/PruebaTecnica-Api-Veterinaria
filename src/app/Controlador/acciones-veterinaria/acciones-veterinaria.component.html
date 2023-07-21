@@ -1,0 +1,77 @@
+<div class="Titulo">
+    <h1 *ngIf="id == 0">
+        Agregar mascota
+    </h1>
+    <h1 *ngIf="id != 0">
+        Editar mascota
+    </h1>
+</div>
+
+<!-- Barra espera -->
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div class="container">
+    <mat-card  class="card">
+        <!-- SubTitulo -->
+        <mat-card-title>
+            Datos de la mascota
+        </mat-card-title>
+
+        <form [formGroup]="form" (ngSubmit)="agregarEditarMascota()">
+
+            <mat-grid-list cols="2" rowHeight="100px">
+                <!-- Nombre -->
+                <mat-grid-tile [colspan] = 2>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Especie -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Especie</mat-label>
+                        <input formControlName="especie" matInput>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Raza -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Raza</mat-label>
+                        <input formControlName="raza" matInput>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Fecha Nacimiento -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha Nacimiento</mat-label>
+                        <input formControlName="fechaNacimiento" matInput>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- IdDueño -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>IdDueño</mat-label>
+                        <input formControlName="idDueno" matInput>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Botones -->
+                <mat-grid-tile [colspan] = 2>
+                    <!-- Boton de agregar -->
+                    <div class="example-button-container">
+                        <button [disabled]="form.invalid" type="submit" mat-mini-fab color="geen" matTooltip="Guardar">
+                          <mat-icon>task_alt</mat-icon>
+                        </button>
+                    </div>
+                    <!-- Boton de Volver -->
+                    <mat-icon class="seprar" routerLink="/listadoMascostas" fontIcon="keyboard_return" matTooltip="Retornar a la pagina anterior"></mat-icon>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>
