@@ -21,6 +21,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Instalar -> "ng add @angular/material"
+
 * EN EL APPSETTINGS.JSON SE ENCUENTRA LA CADENA DE CONEXION DE BASE DE DATOS EN SQL EXPRESS, REALIZAR EL CAMBIO EN ESTE:
 
   "ConnectionStrings": {
